@@ -4,6 +4,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jai Shree Krishna Jewellers</title>
+
 <link href="./Jai Shree Krishna Jewellerswith collection_files/css2" rel="stylesheet">
 <style>
   :root {
@@ -278,6 +279,38 @@
     font-size: 1.1rem;
     letter-spacing: 0.1em;
   }
+
+  .product-features {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.78rem;
+    color: var(--cream);
+    opacity: 0.75;
+    letter-spacing: 0.04em;
+    line-height: 1.6;
+    margin-top: 6px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.product-features li {
+    margin: 2px 0;
+}
+   /* ── BUY ON WHATSAPP ── */
+   .buy-btn {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; padding: 11px;
+      background: linear-gradient(135deg, #128C7E, #25D366);
+      color: #fff; font-family: 'Cinzel', serif; font-size: 11px;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      border: none; cursor: pointer; text-decoration: none;
+      transition: all .3s; border-radius: 2px; margin-bottom: 10px;
+    }
+    .buy-btn:hover {
+      background: linear-gradient(135deg, #075E54, #128C7E);
+      box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+      transform: translateY(-1px);
+    }
+    .buy-btn svg { width: 16px; height: 16px; fill: #fff; flex-shrink: 0; }
 
   /* ── ABOUT ── */
   .about-section {
@@ -623,6 +656,89 @@
     text-transform: uppercase;
   }
 
+  .footer-policy{
+  max-width:600px;
+  margin:15px auto;
+  font-family:'Raleway', sans-serif;
+  text-align:center;
+}
+
+.footer-policy summary{
+  cursor:pointer;
+  color:#d4af37;
+  font-size:14px;
+  margin-bottom:8px;
+}
+
+.footer-policy p,
+.footer-policy li{
+  font-size:13px;
+  color:#ddd;
+  line-height:1.6;
+}
+
+.policy-link{
+  cursor:pointer;
+  color:#d4af37;
+  margin-top:12px;
+  font-size:14px;
+}
+
+/* overlay */
+.policy-modal{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.85);
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  padding:20px;
+}
+
+/* popup box */
+.policy-modal-content{
+  background:#0b0b18;
+  padding:25px;
+  max-width:600px;
+  width:100%;
+  max-height:80vh;
+  overflow-y:auto;
+  border-radius:10px;
+  color:#f5f5f5;
+  font-family:'Raleway', sans-serif;
+}
+
+/* close button */
+.close-policy{
+  float:right;
+  font-size:22px;
+  cursor:pointer;
+}
+
+/* mobile optimization */
+@media (max-width:600px){
+
+  .policy-modal-content{
+    padding:18px;
+    max-height:85vh;
+  }
+
+  .policy-modal-content h2{
+    font-size:20px;
+  }
+
+  .policy-modal-content p,
+  .policy-modal-content li{
+    font-size:14px;
+    line-height:1.6;
+  }
+
+}
+
   /* ── ANIMATIONS ── */
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
@@ -737,7 +853,7 @@
   <div class="mandala-2"></div>
 
   <div class="hero-content">
-    <p class="jai-text">🙏 Jai Shree Krishna 🙏</p>
+    <p class="jai-text">Jai Shree Krishna</p>
     <div class="om-symbol">ॐ</div>
     <h1 class="brand-main">JSK</h1>
     <p class="brand-sub">Jewellers</p>
@@ -782,7 +898,6 @@
 <!-- COLLECTION -->
 <section id="collection" class="gallery-section">
   <h2 class="section-title">Our Collection</h2>
-  <p class="section-sub">Hover on a product to upload your image</p>
 
   <div class="gallery-grid" id="gallery">
 
@@ -807,7 +922,16 @@
       <div class="product-info">
         <div class="product-name" id="name-5">Ruby Diamond Pendant Set</div>
         <div class="product-desc" id="desc-5">Stunning gold pendant set with baguette ruby accents and sparkling diamond clusters. Drop earrings complete this regal ensemble.</div>
+        <ul class="product-features">
+          <li>✔ High quality finish</li>
+          <li>✔ Long lasting polish warranty</li>
+          <li>✔ Perfect for weddings & parties</li>
+        </ul>
         <div class="product-price" id="price-5">₹ 1150</div>
+        
+        <a class="buy-btn" onclick="orderOnWhatsApp(this)">
+          Buy on WhatsApp
+          </a>
       </div>
       <div class="card-edit-bar">
         <button class="edit-btn" onclick="openEdit(5)">✏ Edit</button>
@@ -825,7 +949,15 @@
       <div class="product-info">
         <div class="product-name" id="name-6">Diamond Halo Necklace Set</div>
         <div class="product-desc" id="desc-6">Glamorous graduated diamond halo necklace featuring a pear-shaped drop centerpiece. Includes matching drop earrings for a complete bridal look.</div>
+        <ul class="product-features">
+          <li>✔ High quality finish</li>
+          <li>✔ Long lasting polish warranty</li>
+          <li>✔ Perfect for weddings & parties</li>
+        </ul>
         <div class="product-price" id="price-6">₹ 1200</div>
+        <a href="#" class="buy-btn" onclick="orderOnWhatsApp(this); return false;">
+          Buy on WhatsApp
+        </a>
       </div>
       <div class="card-edit-bar">
         <button class="edit-btn" onclick="openEdit(6)">✏ Edit</button>
@@ -843,7 +975,15 @@
       <div class="product-info">
         <div class="product-name" id="name-7">Silver CZ Statement Necklace Set</div>
         <div class="product-desc" id="desc-7">Dazzling sterling silver necklace with cubic zirconia florals and dangling drops. Accompanied by chandelier earrings for a modern festive look.</div>
+        <ul class="product-features">
+          <li>✔ High quality finish</li>
+          <li>✔ Long lasting polish warranty</li>
+          <li>✔ Perfect for weddings & parties</li>
+        </ul>
         <div class="product-price" id="price-7">₹ 1100</div>
+        <a class="buy-btn" onclick="orderOnWhatsApp(this)">
+          Buy on WhatsApp
+          </a>
       </div>
       <div class="card-edit-bar">
         <button class="edit-btn" onclick="openEdit(7)">✏ Edit</button>
@@ -861,7 +1001,15 @@
       <div class="product-info">
         <div class="product-name" id="name-8">Peacock Meenakari Pendant Set</div>
         <div class="product-desc" id="desc-8">Exquisite hand-crafted meenakari peacock pendant with matching earrings. Features vibrant enamel work, diamond studding, and freshwater pearl drops.</div>
+        <ul class="product-features">
+          <li>✔ High quality finish</li>
+          <li>✔ Long lasting polish warranty</li>
+          <li>✔ Perfect for weddings & parties</li>
+        </ul>
         <div class="product-price" id="price-8">₹ 1300</div>
+        <a class="buy-btn" onclick="orderOnWhatsApp(this)">
+          Buy on WhatsApp
+          </a>
       </div>
       <div class="card-edit-bar">
         <button class="edit-btn" onclick="openEdit(8)">✏ Edit</button>
@@ -879,7 +1027,15 @@
       <div class="product-info">
         <div class="product-name" id="name-9">Royal Touch Diamond Bracelet</div>
         <div class="product-desc" id="desc-9">Bracelet adorned with brilliant-cut diamonds. Greek key motif detailing adds a timeless classical touch.</div>
+        <ul class="product-features">
+          <li>✔ High quality finish</li>
+          <li>✔ Long lasting polish warranty</li>
+          <li>✔ Perfect for weddings & parties</li>
+        </ul>
         <div class="product-price" id="price-9">₹ 400</div>
+        <a class="buy-btn" onclick="orderOnWhatsApp(this)">
+          Buy on WhatsApp
+          </a>
       </div>
       <div class="card-edit-bar">
         <button class="edit-btn" onclick="openEdit(9)">✏ Edit</button>
@@ -904,7 +1060,7 @@
     </div>
     <div class="contact-item">
       <strong>Email</strong>
-      <a href="/cdn-cgi/l/email-protection#afc5cec6dcc7ddcacac4ddc6dcc7c1cec5cad8cac3c3cadddcefc8c2cec6c381ccc0c2" style="color:var(--cream);opacity:0.7;text-decoration:none;"><span class="__cf_email__" data-cfemail="1d777c746e756f7878766f746e75737c77786a787171786f6e5d7a707c7471337e7270">[email&#160;protected]</span></a>
+      <a href="/cdn-cgi/l/email-protection#afc5cec6dcc7ddcacac4ddc6dcc7c1cec5cad8cac3c3cadddcefc8c2cec6c381ccc0c2" style="color:var(--cream);opacity:0.7;text-decoration:none;"><span class="__cf_email__" data-cfemail="1d777c746e756f7878766f746e75737c77786a787171786f6e5d7a707c7471337e7270">jskjeweller@gmail.com</span></a>
     </div>
     <div class="contact-item">
       <strong>Location</strong>
@@ -914,9 +1070,17 @@
 </section>
 
 <!-- FOOTER -->
+<!-- FOOTER -->
 <footer>
+
   <span class="footer-om">🪷</span>
-  <p class="footer-text">© 2026 Jai Shree Krishna Jewellers · All Rights Reserved</p>
+
+  <p class="policy-link" onclick="openReturnPolicy()">Return & Refund Policy</p>
+  
+  <p class="footer-text">
+    © 2026 Jai Shree Krishna Jewellers · All Rights Reserved
+  </p>
+
 </footer>
 
 <!-- EDIT MODAL -->
@@ -1276,6 +1440,15 @@ function toggleOwnerLogin() {
     }
   }
 }
+const WHATSAPP_NUMBER = "918934870740";
+
+function buildWhatsAppLink(name, price) {
+  const msg = encodeURIComponent(
+    `Hello! I'm interested in ordering the *${name}* priced at *${price}* from Jai Shree Krishna Jewellers. Please share availability and delivery details. 🙏`
+  );
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
+}
+
 
 function ownerLogin() {
   const pass = document.getElementById('ownerPass').value;
@@ -1298,6 +1471,66 @@ function ownerLogin() {
     }, 2000);
   }
 }
+
+
+function orderOnWhatsApp(btn){
+
+    const product = btn.closest(".product-info");
+
+    const name = product.querySelector(".product-name").textContent.trim();
+    const price = product.querySelector(".product-price").textContent.trim();
+
+    const phone = "918934870740";
+
+    const message = encodeURIComponent(
+        "Hello! I'm interested in ordering the " + name +
+        " priced at " + price +
+        " from Jai Shree Krishna Jewellers. Please share availability."
+    );
+
+    const url = "https://wa.me/" + phone + "?text=" + message;
+
+    window.open(url, "_blank");
+}
+function openReturnPolicy() {
+  document.getElementById("returnPolicyModal").style.display = "flex";
+}
+
+function closeReturnPolicy() {
+  document.getElementById("returnPolicyModal").style.display = "none";
+}
 </script>
+
+<div id="returnPolicyModal" class="policy-modal">
+
+  <div class="policy-modal-content">
+
+    <span class="close-policy" onclick="closeReturnPolicy()">✕</span>
+
+    <h2>Return & Refund Policy</h2>
+
+    <p>If you receive a damaged or incorrect product, you may request a return within <b>24 hours of delivery</b>.
+    Please contact us on WhatsApp with your order details and product photos.</p>
+
+    <h4>Conditions for Return</h4>
+    <ul>
+      <li>Item must be unused and in original condition</li>
+      <li>Return request must be made within 24 hours</li>
+      <li>Unboxing video required for damaged product claims</li>
+    </ul>
+
+    <h4>Non-Returnable Items</h4>
+    <ul>
+      <li>Artificial jewellery cannot be returned due to hygiene reasons</li>
+      <li>Returns accepted only for damaged or incorrect items</li>
+    </ul>
+
+    <h4>Refund / Replacement</h4>
+    <p>Replacement will be provided after verification. If unavailable, refund will be issued within 3-5 working days.</p>
+
+  </div>
+
+</div>
+
 </body>
 </html>
